@@ -7,6 +7,6 @@ on:
 
 jobs:
   call-reusable-workflow:
-    uses: housten/ToDoApp/.github/workflows/module-test.yaml@main
+    uses: ./.github/workflows/module-test.yaml@main
     with:
       node-version: '20'
