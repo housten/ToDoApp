@@ -38,7 +38,7 @@ jobs:
   
     steps: 
       - name: Run module tests
-        uses: ./.github/actions/module-test.yaml
+        uses: ./.github/actions/module-test
 
 
   deploy:
