@@ -7,6 +7,6 @@ on:
 
 jobs:
   call-test-workflow:
-    uses: ./.github/actions/module-test
+    uses: ./.github/actions/module-test@polishing
     with:
       node-version: '20'
