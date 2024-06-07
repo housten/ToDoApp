@@ -7,6 +7,6 @@ on:
 
 jobs:
   call-test-workflow:
-    uses: ./.github/workflows/module-test.yaml
+    uses: ./.github/actions/module-test
     with:
       node-version: '20'
