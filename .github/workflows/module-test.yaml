@@ -14,12 +14,13 @@ jobs:
 
     steps:
 
-    - name: Use Node.js
+    - name: Checkout code
+      uses: actions/checkout@v2  # This step is necessary to access your repository's files
+
+    - name: Set node js version
       uses: actions/setup-node@v2
       with:
         node-version: ${{ inputs.node-version }}
-
-    - uses: actions/checkout@v2
 
     - name: Install Dependencies
       run: npm install
