@@ -13,7 +13,8 @@ function TodoForm({ addTodo }) {
 
   return (
     <form className='todo-form' onSubmit={handleSubmit}>
-      <input type="text" value={task} onChange={e => setTask(e.target.value)} />
+      <label htmlFor="new-todo">New Todo</label>
+      <input id="new-todo" type="text" value={task} onChange={e => setTask(e.target.value)} />
       <button type="submit">Add Todo</button>
     </form>
   );
