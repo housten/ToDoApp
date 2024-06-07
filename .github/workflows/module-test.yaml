@@ -24,8 +24,7 @@ jobs:
 
     - name: Install Dependencies
       run: npm ci
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.npm-token }}
+
 
     - name: Run Tests
       run: npm test
