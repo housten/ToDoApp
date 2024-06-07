@@ -1,0 +1,56 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload Site
+        uses: actions/upload-artifact@v2
+        with:
+          name: site
+          path: build/
+
+  test:
+    needs: build
+    uses: ./.github/workflows/module-test.yaml@main
+    with:
+      node-version: '20'
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download Site
+        uses: actions/download-artifact@v2
+        with:
+          name: site
+          path: build/
+
+      - name: Deploy
+        run: npm run deploy
+        env:
+          GH_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
+          GIT_NAME: GitHub Actions
+          GIT_EMAIL: github-actions@github.com
