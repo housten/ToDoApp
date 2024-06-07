@@ -53,11 +53,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install Dependencies
-        run: npm install
-
       - name: Debug Info
         run: |
+          pwd
           echo "::group::Directory Structure"
           tree . -L 5
           echo "::endgroup::"
@@ -66,6 +64,10 @@ jobs:
           env
           echo "::endgroup::"
         shell: bash
+
+
+      - name: Install Dependencies
+        run: npm install
 
       - name: Deploy
         run: npm run deploy
