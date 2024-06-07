@@ -53,10 +53,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install Dependencies
+        run: npm install
+
       - name: Debug Info
         run: |
           echo "::group::Directory Structure"
-          tree .
+          tree . -L 5
           echo "::endgroup::"
       
           echo "::group::Environment Variables"
