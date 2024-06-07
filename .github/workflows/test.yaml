@@ -1,0 +1,12 @@
+name: Run Tests
+
+on:
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  call-test-workflow:
+    uses: ./.github/workflows/module-test.yaml
+    with:
+      node-version: '20'
