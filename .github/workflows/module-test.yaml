@@ -6,9 +6,6 @@ on:
       node-version:
         required: true
         type: string
-    secrets:
-      npm-token:
-        required: true
 
 jobs:
   test:
