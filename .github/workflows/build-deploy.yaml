@@ -33,12 +33,9 @@ jobs:
           path: build/
 
   test:
-    needs: build
-    runs-on: ubuntu-latest
-  
-    steps: 
-      - name: Run module tests
-        uses: housten/ToDoApp/.github/workflows/module-test.yaml@backtrack
+    uses: housten/ToDoApp/.github/workflows/module-test.yaml@backtrack
+    with:
+      node-version: '20'
 
 
   deploy:
