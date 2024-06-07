@@ -33,6 +33,7 @@ jobs:
           path: build/
 
   test:
+    needs: build
     uses: housten/ToDoApp/.github/workflows/module-test.yaml@backtrack
     with:
       node-version: '20'
@@ -48,6 +49,20 @@ jobs:
         with:
           name: site
           path: build/
+          
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Debug Info
+        run: |
+          echo "::group::Directory Structure"
+          tree build
+          echo "::endgroup::"
+      
+          echo "::group::Environment Variables"
+          env
+          echo "::endgroup::"
+        shell: bash
 
       - name: Deploy
         run: npm run deploy
