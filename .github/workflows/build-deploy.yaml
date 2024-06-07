@@ -49,14 +49,14 @@ jobs:
         with:
           name: site
           path: build/
-          
+
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Debug Info
         run: |
           echo "::group::Directory Structure"
-          tree build
+          tree .
           echo "::endgroup::"
       
           echo "::group::Environment Variables"
