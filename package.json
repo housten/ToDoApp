@@ -1,5 +1,6 @@
 {
   "name": "copilot-workflow-repo",
+  "homepage": "https://housten.github.io/ToDoApp",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
