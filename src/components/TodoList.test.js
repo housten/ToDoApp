@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import TodoList from './TodoList';
+import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
 
 test('renders without crashing', () => {
     render(<TodoList />);
